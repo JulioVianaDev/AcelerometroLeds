@@ -18,7 +18,24 @@ unsigned long controleTempo;
 
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
+  Wire.begin();
+  mpu6050.begin();
+  mpu.6050.calcGyroOffsets(false);
 
+  pinMode(pinLedX,OUTPUT);
+  pinMode(pinLedY,OUTPUT);
+  pinMode(pinLedZ,OUTPUT);
+  digitalWrite(pinLedX,HIGH);
+  digitalWrite(pinLedY,HIGH);
+  digitalWrite(pinLedZ,HIGH);
+  delay(500);
+  digitalWrite(pinLedX,LOW);
+  digitalWrite(pinLedY,LOW);
+  digitalWrite(pinLedZ,LOW);
+  #ifdef DEBUG
+  Serial.print("fim setup");
+  #endif
 }
 
 void loop() {
