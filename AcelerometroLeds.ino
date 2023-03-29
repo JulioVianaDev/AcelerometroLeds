@@ -40,5 +40,30 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  mpu6050.update();
+  anguloX = mpu6050.getAngleX();
+  anguloY = mpu6050.getAngleY();
+  anguloZ = mpu6050.getAngleZ();
 
+  if (anguloX >=25){
+    digitalWrite(pinLedX,HIGH);
+  }else if(anguloX <= -25){
+    digitalWrite(pinLedX,HIGH);
+  }else{
+    digitalWrite(pinLedX,LOW);
+  }
+  if (anguloY >=25){
+    digitalWrite(pinLedY,HIGH);
+  }else if(anguloY <= -25){
+    digitalWrite(pinLedY,HIGH);
+  }else{
+    digitalWrite(pinLedY,LOW);
+  }
+  if (anguloZ >=25){
+    digitalWrite(pinLedZ,HIGH);
+  }else if(anguloZ <= -25){
+    digitalWrite(pinLedZ,HIGH);
+  }else{
+    digitalWrite(pinLedZ,LOW);
+  }
 }
